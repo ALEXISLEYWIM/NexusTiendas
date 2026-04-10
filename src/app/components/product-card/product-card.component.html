@@ -1,0 +1,29 @@
+<div class="card" (click)="goToDetail()">
+  <div class="card-badges">
+    <span *ngIf="product.badge === 'new'"  class="badge badge-new">Nuevo</span>
+    <span *ngIf="product.badge === 'sale'" class="badge badge-sale">-{{ getDiscount() }}%</span>
+    <span *ngIf="product.badge === 'hot'"  class="badge badge-hot">Hot</span>
+  </div>
+  <button class="wishlist-btn" [class.active]="wished" (click)="toggleWish($event)">&#9825;</button>
+
+  <div class="card-img">
+    <span class="card-emoji">{{ product.emoji }}</span>
+    <div class="card-overlay">
+      <button class="add-btn" (click)="addToCart($event)">+ Agregar</button>
+      <button class="view-btn" (click)="goToDetail()">Ver</button>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-brand">{{ product.brand }}</div>
+    <div class="card-name">{{ product.name }}</div>
+    <div class="card-stars">
+      <span *ngFor="let s of getStars()" class="star">&#9733;</span>
+      <span class="card-reviews">({{ product.reviews }})</span>
+    </div>
+    <div class="card-price-row">
+      <span class="card-price">S/ {{ product.price | number }}</span>
+      <span *ngIf="product.oldPrice" class="card-price-old">S/ {{ product.oldPrice | number }}</span>
+    </div>
+  </div>
+</div>

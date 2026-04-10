@@ -1,0 +1,34 @@
+<div class="login-wrap">
+  <div class="login-visual">
+    <div class="lv-logo">NEX<span>US</span></div>
+    <div class="lv-quote">"La tecnología no es nada. Lo importante es que tengas fe en las personas."</div>
+    <div class="lv-author">— Steve Jobs</div>
+  </div>
+
+  <div class="login-form-wrap">
+    <div class="auth-tabs">
+      <button class="auth-tab" [class.active]="tab==='login'"    (click)="tab='login'">Iniciar sesión</button>
+      <button class="auth-tab" [class.active]="tab==='register'" (click)="tab='register'">Crear cuenta</button>
+    </div>
+
+    <ng-container *ngIf="tab==='login'">
+      <h2>Bienvenido de vuelta</h2>
+      <p>Ingresa a tu cuenta NEXUS</p>
+      <div class="social-btn">G Continuar con Google</div>
+      <div class="or-divider"><span>o con email</span></div>
+      <div class="field"><label>Email</label><input [(ngModel)]="form.email" type="email" placeholder="tu@email.com"></div>
+      <div class="field"><label>Contraseña</label><input [(ngModel)]="form.password" type="password" placeholder="••••••••"></div>
+      <div class="forgot"><a href="#">¿Olvidaste tu contraseña?</a></div>
+      <button class="submit-btn" (click)="submit()">Ingresar</button>
+    </ng-container>
+
+    <ng-container *ngIf="tab==='register'">
+      <h2>Crear cuenta</h2>
+      <p>Únete a NEXUS y empieza a comprar</p>
+      <div class="field"><label>Nombre completo</label><input [(ngModel)]="form.name" placeholder="Tu nombre"></div>
+      <div class="field"><label>Email</label><input [(ngModel)]="form.email" type="email" placeholder="tu@email.com"></div>
+      <div class="field"><label>Contraseña</label><input [(ngModel)]="form.password" type="password" placeholder="Mínimo 8 caracteres"></div>
+      <button class="submit-btn" (click)="submit()">Crear cuenta</button>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background: rgba(10, 10, 11, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid #2a2a35;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 1000;
+
+  &__logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #f0eff5;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &-dot {
+      width: 6px; height: 6px;
+      background: #00e5ff;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #00e5ff;
+    }
+
+    &-accent { color: #00e5ff; text-shadow: 0 0 20px #00e5ff; }
+  }
+
+  &__links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+
+    a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #9998a8;
+      text-decoration: none;
+      position: relative;
+      transition: color .2s;
+      padding-bottom: 4px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px; left: 0;
+        width: 0; height: 1px;
+        background: #00e5ff;
+        transition: width .25s;
+        box-shadow: 0 0 8px #00e5ff;
+      }
+
+      &:hover, &.active {
+        color: #f0eff5;
+        &::after { width: 100%; }
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__search {
+    background: #18181d;
+    border: 1px solid #2a2a35;
+    padding: 8px 14px;
+    color: #9998a8;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    outline: none;
+    width: 200px;
+    transition: border-color .2s;
+
+    &::placeholder { color: #55546a; }
+    &:focus { border-color: #00e5ff; color: #f0eff5; }
+  }
+
+  &__cart {
+    position: relative;
+    background: #18181d;
+    border: 1px solid #2a2a35;
+    padding: 10px 18px;
+    color: #f0eff5;
+    font-size: 12px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all .2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Syne', sans-serif;
+
+    &:hover { border-color: #00e5ff; color: #00e5ff; }
+
+    &-badge {
+      background: #00e5ff;
+      color: #0a0a0b;
+      font-size: 10px;
+      font-weight: 700;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__login {
+    padding: 9px 20px;
+    border: 1px solid #2a2a35;
+    color: #9998a8;
+    font-size: 12px;
+    text-decoration: none;
+    transition: all .2s;
+
+    &:hover { border-color: #00e5ff; color: #00e5ff; }
+  }
+}

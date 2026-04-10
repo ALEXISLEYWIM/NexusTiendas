@@ -1,0 +1,19 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <a routerLink="/" class="nav-logo">
+      <span class="logo-dot"></span>NEX<span class="logo-accent">US</span>
+    </a>
+    <ul class="nav-links">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Inicio</a></li>
+      <li><a routerLink="/productos" routerLinkActive="active">Productos</a></li>
+      <li><a routerLink="/login" routerLinkActive="active">Ingresar</a></li>
+    </ul>
+    <div class="nav-right">
+      <input class="nav-search" type="text" placeholder="Buscar productos...">
+      <button class="cart-btn" (click)="cartService.openCart()">
+        &#9643; Carrito
+        <span class="cart-badge">{{ cartService.getCount() }}</span>
+      </button>
+    </div>
+  </div>
+</nav>

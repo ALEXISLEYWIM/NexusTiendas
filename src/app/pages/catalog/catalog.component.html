@@ -1,0 +1,58 @@
+<div class="catalog-page">
+  <div class="catalog-header">
+    <div class="catalog-header-inner">
+      <div class="section-tag">Tienda</div>
+      <h1 class="section-title">Todos los <span>productos</span></h1>
+    </div>
+  </div>
+
+  <div class="catalog-body">
+    <!-- FILTERS -->
+    <aside class="filters">
+      <div class="filter-section">
+        <div class="filter-title">Categoría</div>
+        <div *ngFor="let cat of categories"
+             class="filter-item"
+             [class.active]="selectedCat === cat"
+             (click)="filterBy(cat)">
+          {{ cat }}
+          <span class="filter-count">{{ cat === 'Todos' ? allProducts.length : allProducts.length }}</span>
+        </div>
+      </div>
+      <div class="filter-section">
+        <div class="filter-title">Precio</div>
+        <div class="price-range">
+          <input type="number" placeholder="Mín" class="price-input">
+          <span>—</span>
+          <input type="number" placeholder="Máx" class="price-input">
+        </div>
+      </div>
+      <div class="filter-section">
+        <div class="filter-title">Marca</div>
+        <label class="check-item"><input type="checkbox"> Apple</label>
+        <label class="check-item"><input type="checkbox"> Samsung</label>
+        <label class="check-item"><input type="checkbox"> Sony</label>
+        <label class="check-item"><input type="checkbox"> ASUS</label>
+        <label class="check-item"><input type="checkbox"> Logitech</label>
+      </div>
+    </aside>
+
+    <!-- PRODUCTS -->
+    <div class="catalog-main">
+      <div class="sort-bar">
+        <span class="results-count">{{ filtered.length }} productos encontrados</span>
+        <select class="sort-select" [(ngModel)]="sortBy" (change)="applyFilters()">
+          <option value="popular">Más populares</option>
+          <option value="price-asc">Menor precio</option>
+          <option value="price-desc">Mayor precio</option>
+        </select>
+      </div>
+
+      <div class="loading" *ngIf="loading">Cargando productos...</div>
+
+      <div class="product-grid" *ngIf="!loading">
+        <app-product-card *ngFor="let p of filtered" [product]="p"></app-product-card>
+      </div>
+    </div>
+  </div>
+</div>

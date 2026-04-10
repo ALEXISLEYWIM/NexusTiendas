@@ -1,0 +1,76 @@
+<div class="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="pulse-dot"></span> Electrónica de vanguardia
+      </div>
+      <h1 class="hero-title">
+        Tecnología<br>
+        <span class="hero-accent">del futuro,</span><br>
+        hoy.
+      </h1>
+      <p class="hero-desc">Los mejores productos electrónicos con garantía oficial, envío gratis y soporte técnico especializado.</p>
+      <div class="hero-actions">
+        <a routerLink="/productos" class="btn-primary">Ver catálogo</a>
+        <a href="#ofertas" class="btn-outline">Ver ofertas</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">+5K</div><div class="stat-lbl">Productos</div></div>
+        <div><div class="stat-num">48h</div><div class="stat-lbl">Entrega</div></div>
+        <div><div class="stat-num">4.9&#9733;</div><div class="stat-lbl">Valoración</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-device"><span class="hero-emoji">💻</span></div>
+      <div class="hero-badge top-right"><div class="badge-lbl">Envío</div><div class="badge-val">Gratis</div></div>
+      <div class="hero-badge bottom-left"><div class="badge-lbl">Garantía</div><div class="badge-val">2 años</div></div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section">
+    <div class="section-tag">Explorar</div>
+    <h2 class="section-title">Categorías <span>destacadas</span></h2>
+    <div class="cat-grid">
+      <a *ngFor="let cat of categories" routerLink="/productos" class="cat-card">
+        <span class="cat-icon">{{ cat.icon }}</span>
+        <div class="cat-name">{{ cat.name }}</div>
+        <div class="cat-count">{{ cat.count }} productos</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section">
+    <div class="section-tag">Lo más vendido</div>
+    <h2 class="section-title">Productos <span>destacados</span></h2>
+    <div class="product-grid">
+      <app-product-card *ngFor="let p of featured" [product]="p"></app-product-card>
+    </div>
+    <div class="section-cta">
+      <a routerLink="/productos" class="btn-outline">Ver todos los productos</a>
+    </div>
+  </section>
+
+  <!-- PROMO BANNER -->
+  <section id="ofertas" class="promo-banner">
+    <div>
+      <div class="promo-tag">Oferta flash — Solo 24 horas</div>
+      <h2 class="promo-title">Hasta <span>40% OFF</span><br>en Gaming</h2>
+      <p class="promo-desc">Consolas, periféricos y accesorios gaming al mejor precio del año.</p>
+      <a routerLink="/productos" class="btn-primary">Ver ofertas</a>
+    </div>
+  </section>
+
+  <!-- ON SALE -->
+  <section class="section">
+    <div class="section-tag">Ofertas</div>
+    <h2 class="section-title">Recién <span>llegados</span></h2>
+    <div class="product-grid">
+      <app-product-card *ngFor="let p of onSale" [product]="p"></app-product-card>
+    </div>
+  </section>
+
+</div>
